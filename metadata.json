@@ -1,0 +1,6 @@
+{
+  "name": "Lapor Bantu",
+  "description": "Sistem Pelaporan dan Tracking Bantuan Sosial Masyarakat",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

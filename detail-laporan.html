@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lapor Bantu - Detail Laporan</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-brand">
+          <i class="bi bi-activity"></i>
+          <span>Lapor Bantu</span>
+        </a>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link">
+              <i class="bi bi-grid-1x2"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="buat-laporan.html" class="sidebar-link">
+              <i class="bi bi-plus-square"></i>
+              <span>Buat Laporan</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="laporan-saya.html" class="sidebar-link active">
+              <i class="bi bi-journal-text"></i>
+              <span>Laporan Saya</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="profil.html" class="sidebar-link">
+              <i class="bi bi-person-circle"></i>
+              <span>Profil Saya</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="pengaturan.html" class="sidebar-link">
+              <i class="bi bi-gear"></i>
+              <span>Pengaturan</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <hr class="my-2 border-secondary opacity-25">
+          </li>
+          <li class="sidebar-item">
+            <a href="tentang-kami.html" class="sidebar-link">
+              <i class="bi bi-info-circle"></i>
+              <span>Tentang Kami</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="faq.html" class="sidebar-link">
+              <i class="bi bi-question-circle"></i>
+              <span>Bantuan / FAQ</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="kontak.html" class="sidebar-link">
+              <i class="bi bi-telephone-inbound"></i>
+              <span>Kontak Kami</span>
+            </a>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <a href="#" id="logoutBtn" class="sidebar-logout">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Keluar</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn d-lg-none p-0 text-dark fs-4" type="button" onclick="document.querySelector('.sidebar').classList.toggle('show')">
+              <i class="bi bi-list"></i>
+            </button>
+            <h1 class="page-title">Detail Laporan Bantuan</h1>
+          </div>
+
+          <div class="navbar-user-info">
+            <div class="notification-bell">
+              <i class="bi bi-bell"></i>
+              <span class="notification-badge"></span>
+            </div>
+            
+            <div class="dropdown">
+              <button class="user-profile-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="" class="user-avatar" alt="Avatar">
+                <span class="user-name d-none d-md-inline">-</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm rounded-4 mt-2">
+                <li><a class="dropdown-item py-2" href="profil.html"><i class="bi bi-person me-2"></i> Profil Saya</a></li>
+                <li><a class="dropdown-item py-2" href="pengaturan.html"><i class="bi bi-gear me-2"></i> Pengaturan</a></li>
+                <li><hr class="dropdown-divider opacity-50"></li>
+                <li><a class="dropdown-item py-2 text-danger" href="#" onclick="document.getElementById('logoutBtn').click()"><i class="bi bi-box-arrow-left me-2"></i> Keluar</a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- CONTENT BODY -->
+        <div class="content-body">
+          <!-- BACK NAVIGATION -->
+          <div class="mb-4">
+            <a href="laporan-saya.html" class="text-decoration-none text-muted fw-semibold d-inline-flex align-items-center gap-2">
+              <i class="bi bi-arrow-left"></i>
+              <span>Kembali ke Laporan Saya</span>
+            </a>
+          </div>
+
+          <!-- DETAILED OVERVIEW -->
+          <div class="row g-4">
+            <!-- Left Panel: Core Information, Photos, Map -->
+            <div class="col-lg-8">
+              <div class="card card-custom p-4 mb-4">
+                <!-- Header Title -->
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 pb-3 border-bottom mb-4">
+                  <div>
+                    <span class="text-muted text-xs d-block">ID LAPORAN: <strong id="detId" class="text-dark">-</strong></span>
+                    <h2 class="fw-bold text-dark mt-1 mb-0" id="detTitle" style="font-size: 1.5rem;">-</h2>
+                  </div>
+                  <div>
+                    <span class="badge-custom" id="detStatusBadge">-</span>
+                  </div>
+                </div>
+
+                <!-- Info block -->
+                <div class="mb-4">
+                  <div class="d-flex align-items-center gap-2 text-muted mb-2" style="font-size: 0.85rem;">
+                    <i class="bi bi-calendar3"></i>
+                    <span>Dilaporkan Pada: <strong id="detTanggal" class="text-dark">-</strong></span>
+                  </div>
+                  <h5 class="fw-semibold text-dark mb-2">Deskripsi Laporan Kejadian</h5>
+                  <p class="text-gray" id="detDeskripsi" style="line-height: 1.7; font-size: 0.95rem;">-</p>
+                </div>
+
+                <!-- Proof Photos -->
+                <div class="mb-4">
+                  <h5 class="fw-semibold text-dark mb-3"><i class="bi bi-images text-primary me-2"></i>Foto Bukti Lapangan</h5>
+                  <div class="row g-2" id="detImagesGrid">
+                    <!-- Dynamic images populated by script.js -->
+                  </div>
+                </div>
+
+                <!-- Incident Location (Map Mockup) -->
+                <div>
+                  <h5 class="fw-semibold text-dark mb-3"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Lokasi Kejadian</h5>
+                  <div class="map-mockup mb-2">
+                    <div class="map-placeholder"></div>
+                    <div class="map-pin"><i class="bi bi-geo-alt-fill"></i></div>
+                  </div>
+                  <p class="text-gray mb-0 p-2 bg-light rounded-3 border" style="font-size: 0.9rem;">
+                    <i class="bi bi-map me-1 text-primary"></i> <span id="detLokasi">-</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel: Handler Progress, Officers, Track Button -->
+            <div class="col-lg-4">
+              <!-- Officer/Status Information Card -->
+              <div class="card card-custom p-4 mb-4">
+                <h5 class="fw-bold text-dark mb-4 pb-2 border-bottom">Informasi Penanganan</h5>
+                
+                <!-- Officer -->
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <div class="p-2 bg-light rounded-3 text-primary fs-5">
+                    <i class="bi bi-person-badge"></i>
+                  </div>
+                  <div>
+                    <span class="text-muted d-block text-xs" style="font-size: 0.75rem;">PETUGAS PENANGGUNG JAWAB</span>
+                    <strong class="text-dark" id="detPetugas" style="font-size: 0.95rem;">-</strong>
+                  </div>
+                </div>
+
+                <!-- Estimasi -->
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <div class="p-2 bg-light rounded-3 text-primary fs-5">
+                    <i class="bi bi-calendar-event"></i>
+                  </div>
+                  <div>
+                    <span class="text-muted d-block text-xs" style="font-size: 0.75rem;">ESTIMASI PENYELESAIAN SOP</span>
+                    <strong class="text-dark" id="detEstimasi" style="font-size: 0.95rem;">-</strong>
+                  </div>
+                </div>
+
+                <!-- Catatan Petugas -->
+                <div class="p-3 rounded-4 mb-4" style="background-color: var(--primary-blue-light); border: 1px solid rgba(37,99,235,0.08);">
+                  <span class="text-muted d-block text-xs mb-1" style="font-size: 0.75rem;"><i class="bi bi-chat-text-fill text-primary me-1"></i> CATATAN TERBARU PETUGAS</span>
+                  <p class="text-dark mb-0 italic" id="detCatatan" style="font-size: 0.85rem; font-style: italic; line-height: 1.5;">-</p>
+                </div>
+
+                <!-- CTA Tracking button -->
+                <a href="" id="btnDetailTrack" class="btn btn-primary w-100 py-2.5 d-flex align-items-center justify-content-center gap-2">
+                  <i class="bi bi-compass"></i>
+                  <span>Pantau Progres Bantuan</span>
+                </a>
+              </div>
+
+              <!-- Assistance Standard Operating Procedure Info -->
+              <div class="card card-custom p-4 text-center" style="border-color: rgba(34,197,94,0.15); background-color: var(--primary-green-light);">
+                <div class="fs-1 text-success mb-2">
+                  <i class="bi bi-shield-fill-check"></i>
+                </div>
+                <h6 class="fw-bold text-dark mb-2">Jaminan Respons SOP</h6>
+                <p class="text-gray mb-0" style="font-size: 0.8rem; line-height: 1.6;">
+                  Lapor Bantu menjamin seluruh laporan warga akan dievaluasi dalam waktu maksimal 12 jam setelah pengiriman. Segala perkembangan proses disajikan transparan secara langsung.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SYSTEM FOOTER -->
+          <footer class="text-center py-3 border-top mt-5 text-muted" style="font-size: 0.85rem;">
+            © 2026 Lapor Bantu. Hak Cipta Dilindungi.
+          </footer>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core Script -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

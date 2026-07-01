@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lapor Bantu - Dashboard Admin</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <a href="admin-dashboard.html" class="sidebar-brand">
+          <i class="bi bi-shield-lock-fill text-success"></i>
+          <span>Lapor Bantu <small class="text-xs text-muted" style="font-size: 0.65rem;">ADMIN</small></span>
+        </a>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="admin-dashboard.html" class="sidebar-link active">
+              <i class="bi bi-speedometer2"></i>
+              <span>Admin Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link" onclick="alert('Fitur Demo: Melihat semua data laporan masyarakat tingkat nasional.')">
+              <i class="bi bi-folder-fill"></i>
+              <span>Semua Laporan</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link" onclick="alert('Fitur Demo: Membuka antrean berkas laporan yang butuh verifikasi berkas.')">
+              <i class="bi bi-file-earmark-check-fill"></i>
+              <span>Verifikasi Berkas</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="pengaturan.html" class="sidebar-link">
+              <i class="bi bi-sliders"></i>
+              <span>Sistem Settings</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <hr class="my-2 border-secondary opacity-25">
+          </li>
+          <li class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link text-primary">
+              <i class="bi bi-arrow-left-right"></i>
+              <span>Kembali Ke Warga</span>
+            </a>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <a href="#" id="logoutBtn" class="sidebar-logout">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Keluar Admin</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn d-lg-none p-0 text-dark fs-4" type="button" onclick="document.querySelector('.sidebar').classList.toggle('show')">
+              <i class="bi bi-list"></i>
+            </button>
+            <h1 class="page-title">Dasbor Ringkasan Sistem (Admin)</h1>
+          </div>
+
+          <div class="navbar-user-info">
+            <div class="notification-bell">
+              <i class="bi bi-bell"></i>
+              <span class="notification-badge"></span>
+            </div>
+            
+            <div class="dropdown">
+              <button class="user-profile-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=250&auto=format&fit=crop" class="user-avatar" alt="Avatar">
+                <span class="user-name d-none d-md-inline">Admin Super</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm rounded-4 mt-2">
+                <li><a class="dropdown-item py-2" href="dashboard.html"><i class="bi bi-people me-2"></i> Mode Warga</a></li>
+                <li><a class="dropdown-item py-2" href="pengaturan.html"><i class="bi bi-gear me-2"></i> Pengaturan</a></li>
+                <li><hr class="dropdown-divider opacity-50"></li>
+                <li><a class="dropdown-item py-2 text-danger" href="#" onclick="document.getElementById('logoutBtn').click()"><i class="bi bi-box-arrow-left me-2"></i> Keluar</a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- CONTENT BODY -->
+        <div class="content-body">
+          <!-- INTRO -->
+          <div class="mb-4">
+            <h2 class="fw-bold mb-1 text-dark" style="font-size: 1.65rem;">Ringkasan Kinerja Sistem</h2>
+            <p class="text-muted mb-0">Selamat datang kembali, Admin. Pantau performa penanganan bantuan hari ini seluruh nasional.</p>
+          </div>
+
+          <!-- STAT CARDS -->
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-xl-3">
+              <div class="card-custom p-3.5 h-100">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="text-muted text-uppercase fw-semibold" style="font-size: 0.75rem;">Total Laporan Masuk</span>
+                  <div class="fs-4 text-primary"><i class="bi bi-archive-fill"></i></div>
+                </div>
+                <h3 class="fw-bold mb-1 text-dark" style="font-size: 1.8rem;">128</h3>
+                <small class="text-success fw-medium"><i class="bi bi-arrow-up"></i> 12% dibanding bulan lalu</small>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="card-custom p-3.5 h-100">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="text-muted text-uppercase fw-semibold" style="font-size: 0.75rem;">Laporan Diproses</span>
+                  <div class="fs-4 text-primary"><i class="bi bi-hourglass-split"></i></div>
+                </div>
+                <h3 class="fw-bold mb-1 text-dark" style="font-size: 1.8rem;">45</h3>
+                <small class="text-success fw-medium"><i class="bi bi-arrow-up"></i> 8% sedang ditangani tim</small>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="card-custom p-3.5 h-100">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="text-muted text-uppercase fw-semibold" style="font-size: 0.75rem;">Laporan Selesai</span>
+                  <div class="fs-4 text-success"><i class="bi bi-check-all"></i></div>
+                </div>
+                <h3 class="fw-bold mb-1 text-dark" style="font-size: 1.8rem;">72</h3>
+                <small class="text-success fw-medium"><i class="bi bi-arrow-up"></i> 15% selesai disalurkan</small>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="card-custom p-3.5 h-100">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="text-muted text-uppercase fw-semibold" style="font-size: 0.75rem;">Laporan Ditolak</span>
+                  <div class="fs-4 text-danger"><i class="bi bi-x-octagon-fill"></i></div>
+                </div>
+                <h3 class="fw-bold mb-1 text-dark" style="font-size: 1.8rem;">11</h3>
+                <small class="text-muted">Tidak memenuhi kriteria data</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- CHARTS SECTION -->
+          <div class="row g-4 mb-4">
+            <!-- Line Chart Trend -->
+            <div class="col-lg-8">
+              <div class="card card-custom p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h5 class="fw-bold text-dark m-0">Grafik Laporan (Per Bulan)</h5>
+                  <select class="form-select form-select-sm w-auto">
+                    <option>Semester Pertama 2026</option>
+                  </select>
+                </div>
+                <div style="height: 280px; position: relative;">
+                  <canvas id="trendChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doughnut Chart Categories -->
+            <div class="col-lg-4">
+              <div class="card card-custom p-4 h-100">
+                <h5 class="fw-bold text-dark mb-4 text-center">Proporsi Kategori Bantuan</h5>
+                <div style="height: 240px; position: relative;">
+                  <canvas id="categoryChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RECENT GLOBAL SUBMISSIONS TABLE -->
+          <div class="card card-custom p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold text-dark m-0">Antrean Laporan Terbaru Masuk</h5>
+              <button class="btn btn-outline-primary btn-sm px-3" onclick="alert('Fitur Demo: Mengambil muat ulang baris antrean terbaru.')">
+                <i class="bi bi-arrow-clockwise"></i> Segarkan Data
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0 text-xs" style="font-size: 0.9rem;">
+                <thead class="table-light">
+                  <tr>
+                    <th class="py-3 border-0">No</th>
+                    <th class="py-3 border-0">Nomor Laporan</th>
+                    <th class="py-3 border-0">Jenis Bantuan</th>
+                    <th class="py-3 border-0">Lokasi Kejadian</th>
+                    <th class="py-3 border-0">Status</th>
+                    <th class="py-3 border-0">Tanggal Masuk</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="py-3">1</td>
+                    <td class="py-3 fw-semibold text-primary">LB-2024-0128</td>
+                    <td class="py-3">Banjir & Air Bersih</td>
+                    <td class="py-3">Kampung Melayu, Jaktim</td>
+                    <td class="py-3"><span class="badge-custom badge-diproses py-1 px-2 text-xs">Diproses</span></td>
+                    <td class="py-3 text-muted">21 Mei 2026</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3">2</td>
+                    <td class="py-3 fw-semibold text-primary">LB-2024-0127</td>
+                    <td class="py-3">Kesehatan & Sanitasi</td>
+                    <td class="py-3">Cipayung, Depok</td>
+                    <td class="py-3"><span class="badge-custom badge-diverifikasi py-1 px-2 text-xs">Diverifikasi</span></td>
+                    <td class="py-3 text-muted">21 Mei 2026</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3">3</td>
+                    <td class="py-3 fw-semibold text-primary">LB-2024-0126</td>
+                    <td class="py-3">Infrastruktur & Jalan</td>
+                    <td class="py-3">Ciracas, Jaktim</td>
+                    <td class="py-3"><span class="badge-custom badge-selesai py-1 px-2 text-xs">Selesai</span></td>
+                    <td class="py-3 text-muted">20 Mei 2026</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3">4</td>
+                    <td class="py-3 fw-semibold text-primary">LB-2024-0125</td>
+                    <td class="py-3">Bantuan Sosial Sembako</td>
+                    <td class="py-3">Pasar Rebo, Jaktim</td>
+                    <td class="py-3"><span class="badge-custom badge-diproses py-1 px-2 text-xs">Diproses</span></td>
+                    <td class="py-3 text-muted">20 Mei 2026</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3">5</td>
+                    <td class="py-3 fw-semibold text-primary">LB-2024-0124</td>
+                    <td class="py-3">Banjir & Air Bersih</td>
+                    <td class="py-3">Pondok Gede, Bekasi</td>
+                    <td class="py-3"><span class="badge-custom badge-diverifikasi py-1 px-2 text-xs">Diverifikasi</span></td>
+                    <td class="py-3 text-muted">19 Mei 2026</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SYSTEM FOOTER -->
+          <footer class="text-center py-3 border-top mt-5 text-muted" style="font-size: 0.85rem;">
+            © 2026 Lapor Bantu. Hak Cipta Dilindungi.
+          </footer>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core Script -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

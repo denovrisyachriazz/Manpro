@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lapor Bantu - Tracking Bantuan</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-brand">
+          <i class="bi bi-activity"></i>
+          <span>Lapor Bantu</span>
+        </a>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link">
+              <i class="bi bi-grid-1x2"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="buat-laporan.html" class="sidebar-link">
+              <i class="bi bi-plus-square"></i>
+              <span>Buat Laporan</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="laporan-saya.html" class="sidebar-link active">
+              <i class="bi bi-journal-text"></i>
+              <span>Laporan Saya</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="profil.html" class="sidebar-link">
+              <i class="bi bi-person-circle"></i>
+              <span>Profil Saya</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="pengaturan.html" class="sidebar-link">
+              <i class="bi bi-gear"></i>
+              <span>Pengaturan</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <hr class="my-2 border-secondary opacity-25">
+          </li>
+          <li class="sidebar-item">
+            <a href="tentang-kami.html" class="sidebar-link">
+              <i class="bi bi-info-circle"></i>
+              <span>Tentang Kami</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="faq.html" class="sidebar-link">
+              <i class="bi bi-question-circle"></i>
+              <span>Bantuan / FAQ</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="kontak.html" class="sidebar-link">
+              <i class="bi bi-telephone-inbound"></i>
+              <span>Kontak Kami</span>
+            </a>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <a href="#" id="logoutBtn" class="sidebar-logout">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Keluar</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn d-lg-none p-0 text-dark fs-4" type="button" onclick="document.querySelector('.sidebar').classList.toggle('show')">
+              <i class="bi bi-list"></i>
+            </button>
+            <h1 class="page-title">Tracking Bantuan</h1>
+          </div>
+
+          <div class="navbar-user-info">
+            <div class="notification-bell">
+              <i class="bi bi-bell"></i>
+              <span class="notification-badge"></span>
+            </div>
+            
+            <div class="dropdown">
+              <button class="user-profile-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="" class="user-avatar" alt="Avatar">
+                <span class="user-name d-none d-md-inline">-</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm rounded-4 mt-2">
+                <li><a class="dropdown-item py-2" href="profil.html"><i class="bi bi-person me-2"></i> Profil Saya</a></li>
+                <li><a class="dropdown-item py-2" href="pengaturan.html"><i class="bi bi-gear me-2"></i> Pengaturan</a></li>
+                <li><hr class="dropdown-divider opacity-50"></li>
+                <li><a class="dropdown-item py-2 text-danger" href="#" onclick="document.getElementById('logoutBtn').click()"><i class="bi bi-box-arrow-left me-2"></i> Keluar</a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- CONTENT BODY -->
+        <div class="content-body">
+          <!-- BACK NAVIGATION -->
+          <div class="mb-4">
+            <a href="laporan-saya.html" class="text-decoration-none text-muted fw-semibold d-inline-flex align-items-center gap-2">
+              <i class="bi bi-arrow-left"></i>
+              <span>Kembali ke Laporan Saya</span>
+            </a>
+          </div>
+
+          <!-- TRACKING HEADER CONTAINER -->
+          <div class="card card-custom p-4 mb-4">
+            <div class="row align-items-center g-3">
+              <div class="col-md-2 text-center text-md-start">
+                <img src="" id="trackImage" class="rounded img-fluid" style="height: 100px; width: 100px; object-fit: cover;" alt="">
+              </div>
+              <div class="col-md-7 text-center text-md-start">
+                <span class="text-xs text-muted">ID LAPORAN: <strong id="trackId" class="text-dark">-</strong></span>
+                <h3 class="fw-bold text-dark mt-1 mb-1" id="trackTitle" style="font-size: 1.35rem;">-</h3>
+                <p class="text-muted mb-0" style="font-size: 0.85rem;"><i class="bi bi-geo-alt-fill text-danger me-1"></i><span id="trackLokasi">-</span></p>
+              </div>
+              <div class="col-md-3 text-center text-md-end">
+                <span class="badge-custom" id="trackStatusBadge">-</span>
+                <a href="#" class="text-primary d-block mt-2 text-decoration-none fw-semibold" style="font-size: 0.85rem;" onclick="history.back()">Lihat Detail Laporan</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROGRESS BAR CARD -->
+          <div class="card card-custom p-4 mb-4">
+            <h5 class="fw-bold text-dark mb-3">Persentase Penanganan Laporan</h5>
+            <div class="progress rounded-pill mb-2" style="height: 24px; font-size: 0.85rem; font-weight: 600;">
+              <div id="trackingProgressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+            <p class="text-muted mb-0" style="font-size: 0.8rem;">Estimasi waktu penyelesaian standar operasional: <strong class="text-dark" id="trackEstimasi">-</strong></p>
+          </div>
+
+          <!-- REAL-TIME TIMELINE PROCESS -->
+          <div class="row g-4">
+            <!-- Timeline details list -->
+            <div class="col-lg-8">
+              <div class="card card-custom p-4">
+                <h5 class="fw-bold text-dark mb-4">Riwayat Tahapan Penyelidikan & Penyaluran</h5>
+                
+                <div class="timeline-container">
+                  <!-- Step 1: Diterima -->
+                  <div class="timeline-item" id="stepDiterima">
+                    <div class="timeline-badge"><i class="bi bi-check-lg text-white"></i></div>
+                    <div class="timeline-content">
+                      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-1">
+                        <h6 class="fw-semibold text-dark m-0">Laporan Diterima</h6>
+                        <span class="badge bg-light text-dark text-xs"><span class="step-date">-</span> • <span class="step-time">-</span></span>
+                      </div>
+                      <p class="text-gray mb-0 text-xs" style="font-size: 0.85rem;">Laporan pengajuan bantuan baru berhasil diunggah dan disimpan ke dalam database nasional Lapor Bantu.</p>
+                    </div>
+                  </div>
+
+                  <!-- Step 2: Diverifikasi -->
+                  <div class="timeline-item" id="stepDiverifikasi">
+                    <div class="timeline-badge"><i class="bi bi-check-lg text-white"></i></div>
+                    <div class="timeline-content">
+                      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-1">
+                        <h6 class="fw-semibold text-dark m-0">Laporan Diverifikasi</h6>
+                        <span class="badge bg-light text-dark text-xs"><span class="step-date">-</span> • <span class="step-time">-</span></span>
+                      </div>
+                      <p class="text-gray mb-0 text-xs" style="font-size: 0.85rem;">Petugas verifikator mengevaluasi deskripsi, keselarasan kategori bantuan, dan keaslian koordinat geografis/bukti yang diunggah.</p>
+                    </div>
+                  </div>
+
+                  <!-- Step 3: Diproses -->
+                  <div class="timeline-item" id="stepDiproses">
+                    <div class="timeline-badge"><i class="bi bi-check-lg text-white"></i></div>
+                    <div class="timeline-content">
+                      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-1">
+                        <h6 class="fw-semibold text-dark m-0">Logistik & Petugas Diproses</h6>
+                        <span class="badge bg-light text-dark text-xs"><span class="step-date">-</span> • <span class="step-time">-</span></span>
+                      </div>
+                      <p class="text-gray mb-0 text-xs" style="font-size: 0.85rem;">Instansi penanggung jawab (Dinas PU, Dinas Sosial, BNPB, dll.) mengemas bantuan dan memberangkatkan tim logistik menuju lokasi Anda.</p>
+                    </div>
+                  </div>
+
+                  <!-- Step 4: Selesai -->
+                  <div class="timeline-item" id="stepSelesai">
+                    <div class="timeline-badge"><i class="bi bi-check-lg text-white"></i></div>
+                    <div class="timeline-content">
+                      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-1">
+                        <h6 class="fw-semibold text-dark m-0">Bantuan Selesai Disalurkan</h6>
+                        <span class="badge bg-light text-dark text-xs"><span class="step-date">-</span> • <span class="step-time">-</span></span>
+                      </div>
+                      <p class="text-gray mb-0 text-xs" style="font-size: 0.85rem;">Bantuan telah tiba dan diserahkan secara resmi kepada perwakilan warga di tempat tujuan. Laporan dinyatakan selesai ditutup.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sidebar handler notes -->
+            <div class="col-lg-4">
+              <!-- Officer Note Widget -->
+              <div class="card card-custom p-4 mb-4">
+                <h5 class="fw-bold text-dark mb-3">Catatan Terbaru Petugas</h5>
+                <div class="p-3 bg-light rounded-4 border mb-3">
+                  <p id="trackCatatan" class="text-dark italic mb-0" style="font-size: 0.85rem; font-style: italic; line-height: 1.5;">-</p>
+                </div>
+                <div class="d-flex align-items-center gap-2 text-muted" style="font-size: 0.8rem;">
+                  <i class="bi bi-shield-fill text-primary"></i>
+                  <span>Ditandatangani oleh: <strong class="text-dark" id="trackPetugas">-</strong></span>
+                </div>
+              </div>
+
+              <!-- Assistance Call Center -->
+              <div class="card card-custom p-4 bg-light text-center">
+                <div class="fs-1 text-primary mb-2">
+                  <i class="bi bi-telephone-outbound-fill"></i>
+                </div>
+                <h6 class="fw-bold text-dark mb-1">Butuh Bantuan Mendesak?</h6>
+                <p class="text-muted text-xs mb-3" style="font-size: 0.8rem;">Hubungi call center darurat jika kondisi lapangan memburuk dengan cepat.</p>
+                <button class="btn btn-outline-primary btn-sm w-100 py-2" onclick="alert('Panggilan Darurat: Menghubungi Satgas Lapor Bantu di 1500-112 (Bebas Pulsa)')">
+                  <i class="bi bi-telephone-fill me-1"></i> Hubungi Call Center
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SYSTEM FOOTER -->
+          <footer class="text-center py-3 border-top mt-5 text-muted" style="font-size: 0.85rem;">
+            © 2026 Lapor Bantu. Hak Cipta Dilindungi.
+          </footer>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core Script -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

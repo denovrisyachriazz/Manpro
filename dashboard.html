@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lapor Bantu - Dashboard Masyarakat</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-brand">
+          <i class="bi bi-activity"></i>
+          <span>Lapor Bantu</span>
+        </a>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link active">
+              <i class="bi bi-grid-1x2"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="buat-laporan.html" class="sidebar-link">
+              <i class="bi bi-plus-square"></i>
+              <span>Buat Laporan</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="laporan-saya.html" class="sidebar-link">
+              <i class="bi bi-journal-text"></i>
+              <span>Laporan Saya</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="profil.html" class="sidebar-link">
+              <i class="bi bi-person-circle"></i>
+              <span>Profil Saya</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="pengaturan.html" class="sidebar-link">
+              <i class="bi bi-gear"></i>
+              <span>Pengaturan</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <hr class="my-2 border-secondary opacity-25">
+          </li>
+          <li class="sidebar-item">
+            <a href="tentang-kami.html" class="sidebar-link">
+              <i class="bi bi-info-circle"></i>
+              <span>Tentang Kami</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="faq.html" class="sidebar-link">
+              <i class="bi bi-question-circle"></i>
+              <span>Bantuan / FAQ</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="kontak.html" class="sidebar-link">
+              <i class="bi bi-telephone-inbound"></i>
+              <span>Kontak Kami</span>
+            </a>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <a href="#" id="logoutBtn" class="sidebar-logout">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Keluar</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn d-lg-none p-0 text-dark fs-4" type="button" onclick="document.querySelector('.sidebar').classList.toggle('show')">
+              <i class="bi bi-list"></i>
+            </button>
+            <h1 class="page-title">Dashboard Utama</h1>
+          </div>
+
+          <div class="navbar-user-info">
+            <div class="notification-bell">
+              <i class="bi bi-bell"></i>
+              <span class="notification-badge"></span>
+            </div>
+            
+            <div class="dropdown">
+              <button class="user-profile-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="" class="user-avatar" alt="Avatar">
+                <span class="user-name d-none d-md-inline">-</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm rounded-4 mt-2">
+                <li><a class="dropdown-item py-2" href="profil.html"><i class="bi bi-person me-2"></i> Profil Saya</a></li>
+                <li><a class="dropdown-item py-2" href="pengaturan.html"><i class="bi bi-gear me-2"></i> Pengaturan</a></li>
+                <li><hr class="dropdown-divider opacity-50"></li>
+                <li><a class="dropdown-item py-2 text-danger" href="#" onclick="document.getElementById('logoutBtn').click()"><i class="bi bi-box-arrow-left me-2"></i> Keluar</a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- CONTENT BODY -->
+        <div class="content-body">
+          <!-- WELCOME BLOCK -->
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+            <div>
+              <h2 class="fw-bold mb-1" id="greetingText" style="font-size: 1.8rem; color: var(--text-dark);">Selamat datang!</h2>
+              <p class="text-gray mb-0">Ayo bersama bantu sesama yang membutuhkan melalui laporan transparan.</p>
+            </div>
+            <a href="buat-laporan.html" class="btn btn-primary d-flex align-items-center gap-2 py-2 px-3">
+              <i class="bi bi-plus-lg"></i>
+              <span>Buat Laporan Baru</span>
+            </a>
+          </div>
+
+          <!-- STATISTICS CARDS -->
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-xl-3">
+              <div class="card-custom p-4 d-flex align-items-center justify-content-between h-100">
+                <div>
+                  <p class="text-muted mb-1 text-uppercase fw-semibold" style="font-size: 0.75rem; tracking: 0.5px;">Total Laporan</p>
+                  <h3 class="fw-bold mb-0 text-dark" id="statTotal" style="font-size: 2rem;">-</h3>
+                  <small class="text-muted">Seluruh laporan Anda</small>
+                </div>
+                <div class="p-3 bg-light rounded-4 text-primary fs-3">
+                  <i class="bi bi-file-earmark-text"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="card-custom p-4 d-flex align-items-center justify-content-between h-100">
+                <div>
+                  <p class="text-muted mb-1 text-uppercase fw-semibold" style="font-size: 0.75rem; tracking: 0.5px;">Sedang Diproses</p>
+                  <h3 class="fw-bold mb-0 text-dark" id="statDiproses" style="font-size: 2rem;">-</h3>
+                  <small class="text-muted">Sedang ditangani tim</small>
+                </div>
+                <div class="p-3 bg-light rounded-4 text-primary fs-3" style="color: var(--primary-blue) !important;">
+                  <i class="bi bi-hourglass-split"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="card-custom p-4 d-flex align-items-center justify-content-between h-100">
+                <div>
+                  <p class="text-muted mb-1 text-uppercase fw-semibold" style="font-size: 0.75rem; tracking: 0.5px;">Selesai Ditangani</p>
+                  <h3 class="fw-bold mb-0 text-dark" id="statSelesai" style="font-size: 2rem;">-</h3>
+                  <small class="text-muted">Bantuan telah disalurkan</small>
+                </div>
+                <div class="p-3 bg-light rounded-4 text-success fs-3">
+                  <i class="bi bi-check-circle"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="card-custom p-4 d-flex align-items-center justify-content-between h-100">
+                <div>
+                  <p class="text-muted mb-1 text-uppercase fw-semibold" style="font-size: 0.75rem; tracking: 0.5px;">Laporan Ditolak</p>
+                  <h3 class="fw-bold mb-0 text-dark" id="statDitolak" style="font-size: 2rem;">-</h3>
+                  <small class="text-muted">Laporan tidak valid</small>
+                </div>
+                <div class="p-3 bg-light rounded-4 text-danger fs-3">
+                  <i class="bi bi-x-circle"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RECENT ACTIVITY AND NOTIFICATION -->
+          <div class="row g-4 mb-4">
+            <!-- Recent Activities -->
+            <div class="col-lg-8">
+              <div class="card-custom h-100 p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                  <h4 class="fw-bold text-dark m-0" style="font-size: 1.15rem;">Status Laporan Terbaru</h4>
+                  <a href="laporan-saya.html" class="text-primary text-decoration-none fw-semibold d-flex align-items-center gap-1" style="font-size: 0.85rem;">
+                    <span>Lihat Semua</span>
+                    <i class="bi bi-chevron-right"></i>
+                  </a>
+                </div>
+                <div class="d-flex flex-column" id="recentReportsList">
+                  <!-- JS dynamically populates this -->
+                  <div class="text-center py-4">
+                    <div class="spinner-border text-primary spinner-border-sm" role="status"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Info/Bantuan & Info Penyaluran -->
+            <div class="col-lg-4">
+              <div class="card-custom p-4 h-100 d-flex flex-column justify-content-between" style="background-color: var(--primary-blue-light); border-color: rgba(37,99,235,0.1);">
+                <div>
+                  <div class="fs-1 text-primary mb-3">
+                    <i class="bi bi-info-circle-fill"></i>
+                  </div>
+                  <h5 class="fw-bold text-dark mb-2">Informasi Penting Laporan</h5>
+                  <p class="text-gray" style="font-size: 0.9rem; line-height: 1.6;">
+                    Setiap laporan Anda sangat berarti untuk perubahan yang lebih baik di lingkungan kita. Pastikan data koordinat GPS dan foto bukti yang Anda kirimkan jelas dan sesuai kondisi lapangan untuk mempermudah verifikasi petugas.
+                  </p>
+                </div>
+                <div class="mt-3">
+                  <a href="buat-laporan.html" class="btn btn-primary w-100">Mulai Buat Laporan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SYSTEM FOOTER -->
+          <footer class="text-center py-3 border-top mt-4 text-muted" style="font-size: 0.85rem;">
+            © 2026 Lapor Bantu. Hak Cipta Dilindungi.
+          </footer>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core Script -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
